@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 
+import 'card.dart';
+import 'flash_card_name_row.dart';
+
 class NewFlashCards extends StatefulWidget {
   const NewFlashCards({Key? key}) : super(key: key);
 
@@ -32,12 +35,15 @@ class _NewFlashCardsState extends State<NewFlashCards> {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color(0xFFffffff).withOpacity(0.1),
-              Color(0xFFFFFFFF).withOpacity(0.05),
+              Color(0xFFffffff).withOpacity(0.2),
+              Color(0xFFFFFFFF).withOpacity(0.2),
             ],
           ),
           borderRadius: 0,
           border: 0,
+          child: Column(
+            children: [NameRow(), Flexible(child: CreateCard())],
+          ),
         ),
       ),
     );
