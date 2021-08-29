@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
-import 'card.dart';
-import 'flash_card_name_row.dart';
+import 'mylist.dart';
 
-class NewFlashCards extends StatefulWidget {
-  const NewFlashCards({Key? key}) : super(key: key);
+class ToDoList extends StatefulWidget {
+  const ToDoList({Key? key}) : super(key: key);
+
   @override
-  _NewFlashCardsState createState() => _NewFlashCardsState();
+  _ToDoListState createState() => _ToDoListState();
 }
 
-class _NewFlashCardsState extends State<NewFlashCards> {
+class _ToDoListState extends State<ToDoList> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,11 +40,15 @@ class _NewFlashCardsState extends State<NewFlashCards> {
           borderRadius: 0,
           border: 0,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  margin: EdgeInsets.fromLTRB(10, 10, 10, 20),
-                  child: NameRow()),
-              Flexible(child: CreateFlashCard())
+                margin: EdgeInsets.fromLTRB(10, 10, 10, 20),
+                child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.arrow_back_ios_new_outlined)),
+              ),
+              Flexible(child: MyList())
             ],
           ),
         ),
