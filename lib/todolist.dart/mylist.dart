@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:custom_check_box/custom_check_box.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+
+import 'checkbox_list.dart';
 
 class MyList extends StatefulWidget {
   const MyList({Key? key}) : super(key: key);
@@ -13,15 +14,6 @@ class _MyListState extends State<MyList> {
   bool shouldCheck = false;
   bool shouldCheckDefault = false;
   TextEditingController mylist = new TextEditingController();
-  @override
-  void initState() {
-    super.initState();
-    mylist.addListener(() {
-      if (shouldCheck == true) {
-        TextDecoration.lineThrough;
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,32 +43,8 @@ class _MyListState extends State<MyList> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
-          child: ListTile(
-            leading: CustomCheckBox(
-                checkedFillColor: Color(0xff56B2BA),
-                value: shouldCheck,
-                onChanged: (val) {
-                  setState(() {
-                    shouldCheck = val;
-                  });
-                }),
-            title: TextField(
-              style: TextStyle(color: Colors.black, fontSize: 26),
-              controller: mylist,
-              decoration: InputDecoration.collapsed(
-                  hintText: "list your tasks",
-                  hintStyle: TextStyle(fontSize: 20)),
-            ),
-            trailing: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.alarm,
-                color: Colors.black,
-              ),
-            ),
-          ),
-        ),
+            padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
+            child: CheckBoxList())
       ],
     );
   }
