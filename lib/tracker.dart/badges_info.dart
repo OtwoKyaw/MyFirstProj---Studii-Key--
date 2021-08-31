@@ -38,9 +38,9 @@ class _BadgesInfoState extends State<BadgesInfo> {
         child: Column(
           children: [
             // my badges
-            MyBadges(),
+            Flexible(child: MyBadges()),
             // badges types
-            BadgesTypes()
+            // Flexible(child: BadgesTypes())
           ],
         ));
   }
